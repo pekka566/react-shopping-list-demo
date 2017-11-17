@@ -1,6 +1,6 @@
 ### Shopping List Demo with React and Node.js
 
-This project demonstrates how to create simple React + Node.js (express) application. The integration between client and server has been done via Rest API. The client has been done by Create React App command line tool.
+This project demonstrates how to create simple React + Node.js (express) application. The integration between client and server has been done via REST API. The client has been done by Create React App command line tool.
 
 ## Dependencies
 
