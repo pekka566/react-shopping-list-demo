@@ -26,7 +26,7 @@ This project demonstrates how to create simple React + Node.js (express) applica
 ## Running locally
 
 ```
-git clone git@github.com:pekka566/react-shopping-list-demo.git
+git clone https://github.com/pekka566/react-shopping-list-demo.git
 cd react-shopping-list-demo
 npm i / yarn install
 
