@@ -20,6 +20,7 @@ exports.create_an_item = (req, res) => {
       count: body.count,
       name: body.name,
       date: body.date,
+      category: body.category,
     };
     db.insert(doc);
     res.json({ doc });

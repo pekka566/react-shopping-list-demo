@@ -1,7 +1,15 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types'; // eslint-disable-line import/no-extraneous-dependencies
+import { Form, Button, Dropdown } from 'semantic-ui-react';
+import styles from '../AppStyles.css.js';
 
 const uuid = require('node-uuid');
+
+const options = [
+  { value: 'all', text: 'All' },
+  { value: 'articles', text: 'Articles' },
+  { value: 'products', text: 'Products' },
+];
 
 export class NewItem extends Component {
   constructor(props) {
@@ -11,6 +19,12 @@ export class NewItem extends Component {
       count: false,
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.changeCategory = this.changeCategory.bind(this);
+  }
+
+  changeCategory(event, data) {
+    const category = { category: data.value };
+    this.setState(category);
   }
 
   handleSubmit(event) {
@@ -21,11 +35,13 @@ export class NewItem extends Component {
     if (errors.name || errors.count) {
       // do nothing
     } else {
+      const category = this.state.category;
       const item = {
         id: uuid.v4(),
         date: new Date(),
         name: this.name.value.trim(),
         count: this.count.value,
+        category,
       };
       this.props.addAction(item);
     }
@@ -34,30 +50,38 @@ export class NewItem extends Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <div>
+      <Form onSubmit={this.handleSubmit}>
+        <Form.Field>
           <label
-            htmlFor='count' className={this.errors.count ? 'error' : 'ok'}
+            htmlFor='count' {...this.errors.count && { style: styles.error }}
           >Count:</label>
           <input
             type='number' name='count' ref={input => this.count = input} // eslint-disable-line no-return-assign
             min='1' max='999' defaultValue='1'
           />
-        </div>
-        <div>
+        </Form.Field>
+        <Form.Field>
           <label
-            htmlFor='name' className={this.errors.name ? 'error' : 'ok'}
+            htmlFor='name' {...this.errors.name && { style: styles.error }}
           >Name:</label>
           <input
             type='text' name='name' ref={input => this.name = input} // eslint-disable-line no-return-assign
           />
-        </div>
-        <div className='buttonDiv'>
-          <button
-            type='button' id='submitButton' onClick={this.handleSubmit}
-          >Add</button>
-        </div>
-      </form>
+        </Form.Field>
+        <Form.Field>
+          <label
+            htmlFor='category'
+          >Category:</label>
+          <Dropdown
+            placeholder='Select...'
+            selection
+            search
+            options={options}
+            onChange={this.changeCategory}
+          />
+        </Form.Field>
+        <Button type='submit' content='Add' />
+      </Form>
     );
   }
 }
