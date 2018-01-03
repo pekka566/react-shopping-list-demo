@@ -35,7 +35,7 @@ export class NewItem extends Component {
     if (errors.name || errors.count) {
       // do nothing
     } else {
-      const category = this.state.category;
+      const category = this.state ? this.state.category : '';
       const item = {
         id: uuid.v4(),
         date: new Date(),

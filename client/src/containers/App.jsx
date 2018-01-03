@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Header, Container, Segment } from 'semantic-ui-react';
-import { NewItem } from '../containers/NewItem';
-import { ListOfItems } from './ListOfItems';
+import { NewItem } from '../components/NewItem';
+import { ListOfItems } from '../components/ListOfItems';
 import { fetchItems, createItem, removeItem } from '../actions';
 
 class App extends Component {
