@@ -1,11 +1,15 @@
 {
+  "env": {
+    "browser": true,
+    "node": true
+  },
   "extends": "airbnb",
   "parser": "babel-eslint",
   "rules": {
     "array-bracket-spacing": [2, "always"],
     "jsx-quotes": [1, "prefer-single"],
     "jsx-a11y/no-static-element-interactions": 0,
-    "linebreak-style": ["error", "unix"],
+    "linebreak-style": ["error", "windows"],
     "max-len": ["error", { "code": 80, "ignoreTrailingComments": true }],
     "no-use-before-define": [2, "nofunc"],
     "no-shadow": 0,
