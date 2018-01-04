@@ -17,7 +17,7 @@ This project demonstrates how to create simple React + Node.js (express) applica
 
 [node-uuid](https://github.com/kelektiv/node-uuid) -- Universally unique identifier (UUID) generator.
 
-[React](https://github.com/facebook/react/) -- JavaScript library for building user interfaces
+[React](https://github.com/facebook/react/) -- JavaScript library for building user interfaces.
 
 [React-dom](https://github.com/facebook/react/tree/master/packages/react-dom) -- Provides rendering of react element into the DOM.
 
