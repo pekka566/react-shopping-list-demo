@@ -5,7 +5,7 @@ import { NewItem } from '../components/NewItem';
 import { ListOfItems } from '../components/ListOfItems';
 import { fetchItems, createItem, removeItem } from '../actions';
 
-class App extends Component {
+class ShoppingList extends Component {
   constructor() {
     super();
     this.handleAdd = this.handleAdd.bind(this);
@@ -26,7 +26,7 @@ class App extends Component {
 
   render() {
     return (
-      <div className='App'>
+      <div>
         <Header
           as='h1'
           content='Shopping List'
@@ -56,9 +56,9 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = { fetchItems, createItem, removeItem };
 
-const AppContainer = connect(
+const ShoppingListContainer = connect(
   mapStateToProps,
   mapDispatchToProps,
-)(App);
+)(ShoppingList);
 
-export default AppContainer;
+export default ShoppingListContainer;
